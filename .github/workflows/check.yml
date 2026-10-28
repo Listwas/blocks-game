@@ -1,0 +1,26 @@
+name: Check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:release
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:browser && npm run test:lifecycle && npm run test:performance && npm run test:layout && npm run test:popups && npm run test:feedback && npm run test:start && npm run test:battery && npm run test:fullscreen && npm run test:runtime
+        env:
+          CHROMIUM_PATH: ""
+      - run: npm run test:browser && npm run test:lifecycle && npm run test:performance && npm run test:layout && npm run test:popups && npm run test:feedback && npm run test:start && npm run test:battery && npm run test:fullscreen && npm run test:runtime
+        env:
+          BROWSER: webkit
+      - run: npm run audit
+      - run: npm run test:updates
+        env:
+          CHROMIUM_PATH: ""

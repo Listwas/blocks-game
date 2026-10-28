@@ -1,0 +1,52 @@
+{
+  "trays": 10000,
+  "groups": {
+    "opening": {
+      "count": 1000,
+      "fallback": 0
+    },
+    "crowded": {
+      "count": 7000,
+      "fallback": 0
+    },
+    "adversarial": {
+      "count": 2000,
+      "fallback": 4
+    }
+  },
+  "totalFallbacks": 4,
+  "p95": 0.10075800000004165,
+  "max": 8.244137000000023,
+  "strategies": {
+    "random": {
+      "games": 60,
+      "medianScore": 540,
+      "medianMoves": 11,
+      "medianFirstRewardMove": 0,
+      "medianRewards": 0,
+      "medianChain": 1,
+      "capped": 0,
+      "fallbacks": 0
+    },
+    "greedy": {
+      "games": 60,
+      "medianScore": 4460,
+      "medianMoves": 32,
+      "medianFirstRewardMove": 0,
+      "medianRewards": 0,
+      "medianChain": 6,
+      "capped": 0,
+      "fallbacks": 0
+    },
+    "conservative": {
+      "games": 60,
+      "medianScore": 4600,
+      "medianMoves": 32,
+      "medianFirstRewardMove": 0,
+      "medianRewards": 0,
+      "medianChain": 6,
+      "capped": 0,
+      "fallbacks": 0
+    }
+  }
+}

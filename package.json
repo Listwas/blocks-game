@@ -1,0 +1,44 @@
+{
+  "name": "blocks",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build && node tools/build-sw.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "check": "npm test && npm run build",
+    "audit": "node tools/audit.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name blocks-game --branch main",
+    "test:layout": "node tests/layout.mjs",
+    "test:runtime": "node tests/runtime.mjs",
+    "test:updates": "node tests/updates.mjs",
+    "test:release": "node tests/release-verifier.mjs",
+    "test:popups": "node tests/compact-popups.mjs",
+    "test:feedback": "node tests/feedback-ui.mjs",
+    "test:start": "node tests/start-cue.mjs",
+    "test:fullscreen": "node tests/fullscreen.mjs",
+    "test:lifecycle": "node tests/lifecycle.mjs",
+    "test:performance": "PERF_ASSERT=1 node tests/performance.mjs",
+    "test:battery": "node tests/battery.mjs"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.6.0",
+    "@types/react": "19.1.16",
+    "@types/react-dom": "19.1.9",
+    "@vitejs/plugin-react-swc": "4.1.0",
+    "playwright": "1.64.1",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3",
+    "vite": "7.1.7",
+    "vitest": "4.1.11",
+    "wrangler": "4.127.1",
+    "esbuild": "0.25.12"
+  }
+}
